@@ -1,51 +1,13 @@
-# java--interview-menu
-##MQ
-[第一章节笔记](/mq/README.md)
-### 电商系统如何防止库存超卖?
-
-###### 方案一
-
-使用Redis分布式锁或者Zookeeper分布式锁,加锁扣减库存操作，缺点是性能不高。
-
-###### 方案二
-
-基于Redis Lua脚本 原子化库存查询+库存扣减操作
-
-
-###### 方案三
-
-基于redis 队列(List)
-通过pop扣减库存，缺点是如果秒杀商品数量过大，会消耗大量内存
-
-###### 方案四
-
-基于数据库Version乐观锁，先查询库存版本号，同过版本号去修改库存，失败轮训重试，缺点是会消耗大量CPU
-
+#目录
+1. #### [MQ](/mq/README.md)
+2. #### [系统设计](/systemdesign/README.md)
+3. #### [事务](/transaction/README.md)
+4. #### [JVM](/jvm/README.md)
+5. #### [MySql](mysql/README.md)
 ---
 
 
-### 分布式事务有哪些方案？
-
-###### XA规范与2PC协议
- ![image](http://assets.processon.com/chart_image/6001a6e86376897ae07dd1fb.png)
-
-###### 3PC
- ![image](http://assets.processon.com/chart_image/6001acbae401fd661aaf9414.png)
- 
- ###### TCC
- ![image](http://assets.processon.com/chart_image/6001b1665653bb1b2eed0c99.png?_=1611759255640)
-
-
-###### 本地消息表方案
-
-![image](http://assets.processon.com/chart_image/6002d3e81e08534bec21ccd4.png)
-
-###### 可靠消息最终一致性方案
-![image](http://assets.processon.com/chart_image/6002d44de0b34d45d15b0e0f.png)
-
-###### 最大努力通知方案
-![image](http://assets.processon.com/chart_image/6002d482e401fd261bc53d26.png)
-
+# 以下面试题更新中....
 
 ---
 
@@ -100,15 +62,9 @@
 ### 你们公司生产环境的redis集群的部署架构是什么样的？
 ---
 
-### JVM GC机制总结
-
-![image](http://assets.processon.com/chart_image/5fe2ff321e08535fa5dd809f.png)
 
 
 
-#### Mysql总结，解释说明一下MVCC多版本并发机制？undolog和redolog的作用是什么?索引的生效机制大概有哪些？
-
-![image](http://assets.processon.com/chart_image/6006891563768934926a20c0.png)
 
 
 
